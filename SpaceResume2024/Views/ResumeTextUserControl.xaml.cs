@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace SpaceResume2024.Views;
 
 /// <summary>
-/// Interaction logic for ProfessionalGoalsUserControl.xaml
+/// Interaction logic for ResumeTextUserControl.xaml
 /// </summary>
-public partial class ProfessionalGoalsUserControl : UserControl
+public partial class ResumeTextUserControl : UserControl
 {
-    public ProfessionalGoalsUserControl()
+    public ResumeTextUserControl()
     {
         InitializeComponent();
     }

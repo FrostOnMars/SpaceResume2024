@@ -15,7 +15,10 @@
         
     </Window.Resources>
     <Grid>
-        <views:ProfessionalGoalsUserControl/>
+        <views:ResumeTextUserControl/>
+        <views:ResumeTextUserControl/>
+        <views:ResumeTextUserControl/>
+        <views:ResumeTextUserControl/>
     </Grid>
  
 </Window>

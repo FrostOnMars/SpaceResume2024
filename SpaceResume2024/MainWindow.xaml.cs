@@ -26,7 +26,7 @@ public partial class MainWindow : Window
         DataContext = _viewModel;
 
         //ProfessionalGoalsTitle.Text = _viewModel.ResumeInfo.Title;
-        //ProfessionalGoalsBody.Text = string.Join("\n", _viewModel.ResumeInfo.Skills);
+        //ProfessionalGoalsBody.Text = string.Join("\n", _viewModel.ResumeInfo.Body);
 
 
 

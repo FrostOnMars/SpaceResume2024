@@ -9,7 +9,7 @@ using System.Windows.Documents;
 
 namespace SpaceResume2024.Views.Converters;
 
-public class ProfessionalGoalsBodyConverter : IValueConverter
+public class ResumeTextBodyConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
