@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using System.Windows.Data;
-using System.Windows.Documents;
 
 namespace SpaceResume2024.Views.Converters;
 
 public class ResumeTextBodyConverter : IValueConverter
 {
+    #region Public Methods
+
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if (!(value is List<string> list))
-        {
-            return string.Empty;
-        }
+        if (!(value is List<string> list)) return string.Empty;
         return string.Join("\n", list);
     }
 
@@ -24,4 +17,6 @@ public class ResumeTextBodyConverter : IValueConverter
     {
         throw new NotImplementedException();
     }
+
+    #endregion Public Methods
 }

@@ -1,16 +1,32 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
+using CommunityToolkit.Mvvm.ComponentModel;
 using SpaceResume2024.Models;
 
 namespace SpaceResume2024.ViewModels;
 
 public partial class MainWindowViewModel : ObservableObject
 {
-    public List<ResumeTextViewModel> ResumeTextViewModels { get; } = [];
+    #region Public Properties
+
+    //public List<ResumeTextViewModel> ResumeTextViewModels { get; } = [];
+    [ObservableProperty] private ObservableCollection<ResumeTextViewModel> _resumeTextViewModels = new();
+    public double ScreenHeight { get; set; }
+    public double ScreenWidth { get; set; }
+
+    #endregion Public Properties
+
+    #region Public Constructors
+    public MainWindowViewModel()
+    {
+        GetResumeText();
+        ScreenHeight = SystemParameters.PrimaryScreenHeight;
+        ScreenWidth = SystemParameters.PrimaryScreenWidth;
+    }
+    #endregion
+
+
+    #region Public Methods
 
     public void GetResumeText()
     {
@@ -26,7 +42,8 @@ public partial class MainWindowViewModel : ObservableObject
                 "Interested in working with a business with a clear path to success for employees who work hard and deliver results."
             ]
         }));
-        var experience = new ResumeInfo()
+       
+        ResumeTextViewModels.Add(new ResumeTextViewModel(new ResumeInfo
         {
             Title = "Work Experience",
             Body =
@@ -39,12 +56,8 @@ public partial class MainWindowViewModel : ObservableObject
                 "Participated in code reviews and provided feedback to other developers.",
                 "Collaborated with other departments to ensure project success."
             ]
-        };
+        }));
 
-        var experienceViewModel = new ResumeTextViewModel(experience);
-
-        ResumeTextViewModels.Add(experienceViewModel);
-        
         ResumeTextViewModels.Add(new ResumeTextViewModel
         {
             ResumeInfo = new ResumeInfo
@@ -79,6 +92,6 @@ public partial class MainWindowViewModel : ObservableObject
             }
         });
     }
-}
-}
 
+    #endregion Public Methods
+}

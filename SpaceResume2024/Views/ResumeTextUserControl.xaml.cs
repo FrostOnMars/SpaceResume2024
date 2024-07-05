@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using SpaceResume2024.ViewModels;
 
 namespace SpaceResume2024.Views;
 
@@ -20,8 +9,27 @@ namespace SpaceResume2024.Views;
 /// </summary>
 public partial class ResumeTextUserControl : UserControl
 {
+    #region Private Fields
+
+    private readonly ResumeTextViewModel _resumeTextViewModel = new();
+
+    #endregion Private Fields
+
+    #region Public Constructors
+
     public ResumeTextUserControl()
     {
         InitializeComponent();
+        DataContext = _resumeTextViewModel;
     }
+
+    #endregion Public Constructors
+
+    #region Private Methods
+
+    private void ProfessionalGoalsTitle_OnLoaded(object sender, RoutedEventArgs e)
+    {
+    }
+
+    #endregion Private Methods
 }

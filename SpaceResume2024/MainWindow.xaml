@@ -5,20 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpaceResume2024.ViewModels"
         xmlns:views="clr-namespace:SpaceResume2024.Views"
-        xmlns:converters="clr-namespace:SpaceResume2024.Views.Converters"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        Height="{Binding ScreenHeight}" 
+        Width="{Binding ScreenWidth}"
+        MinHeight="1000"
+        MinWidth="1000">
     <Window.DataContext>
-        <local:MainWindowViewModel/>
+        <local:MainWindowViewModel />
     </Window.DataContext>
     <Window.Resources>
-        
     </Window.Resources>
     <Grid>
-        <views:ResumeTextUserControl/>
-        <views:ResumeTextUserControl/>
-        <views:ResumeTextUserControl/>
-        <views:ResumeTextUserControl/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding ScreenWidth}" />
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="MyListView" 
+                  HorizontalAlignment="Left" 
+                  Grid.Row="0" 
+                  Grid.Column="0"
+                  Height="auto" 
+                  Width="{Binding ScreenWidth}" 
+                  VerticalAlignment="Top" 
+                  ItemsSource="{Binding ResumeTextViewModels}"
+                  Loaded="MyListView_OnLoaded">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <views:ResumeTextUserControl DataContext="{Binding ResumeInfo}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--<views:ResumeTextUserControl 
+            DataContext="{Binding ResumeTextViewModels[0]}" 
+            Loaded="OnLoaded_Button"
+            Grid.Row="0"/>
+        <views:ResumeTextUserControl
+            DataContext="{Binding ResumeTextViewModels[1]}" 
+            Grid.Row="1"/>
+        <views:ResumeTextUserControl 
+            DataContext="{Binding ResumeTextViewModels[2]}" 
+            Loaded="OnLoaded_Button"
+            Grid.Row="0"/>
+        <views:ResumeTextUserControl 
+            DataContext="{Binding ResumeTextViewModels[3]}" 
+            Loaded="OnLoaded_Button"
+            Grid.Row="0"/>-->
     </Grid>
- 
 </Window>

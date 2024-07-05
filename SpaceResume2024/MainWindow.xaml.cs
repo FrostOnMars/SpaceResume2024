@@ -1,14 +1,5 @@
 ﻿using SpaceResume2024.ViewModels;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SpaceResume2024;
 
@@ -17,19 +8,33 @@ namespace SpaceResume2024;
 /// </summary>
 public partial class MainWindow : Window
 {
+    #region Private Fields
+
     private readonly MainWindowViewModel _viewModel = new();
+
+    #endregion Private Fields
+
+    #region Public Constructors
 
     public MainWindow()
     {
-
         InitializeComponent();
         DataContext = _viewModel;
-
-        //ProfessionalGoalsTitle.Text = _viewModel.ResumeInfo.Title;
-        //ProfessionalGoalsBody.Text = string.Join("\n", _viewModel.ResumeInfo.Body);
-
-
-
     }
 
+    #endregion Public Constructors
+
+    #region Private Methods
+
+    private void OnLoaded_Button(object sender, RoutedEventArgs e)
+    {
+    }
+
+    #endregion Private Methods
+
+    private void MyListView_OnLoaded(object sender, RoutedEventArgs e)
+    {
+        _viewModel.GetResumeText();
+        ;
+    }
 }

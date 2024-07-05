@@ -2,7 +2,10 @@
 
 public class ResumeInfo
 {
-    public string Title { get; set; }
-    public List<string> Body { get; set; } = [];
+    #region Public Properties
 
+    public List<string> Body { get; set; } = [];
+    public string? Title { get; set; }
+
+    #endregion Public Properties
 }
