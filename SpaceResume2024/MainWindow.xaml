@@ -34,7 +34,7 @@
                   Loaded="MyListView_OnLoaded">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <views:ResumeTextUserControl DataContext="{Binding ResumeInfo}" />
+                    <views:ResumeTextUserControl DataContext="{Binding}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
