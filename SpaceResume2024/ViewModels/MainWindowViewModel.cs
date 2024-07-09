@@ -94,7 +94,7 @@ public partial class MainWindowViewModel : ObservableObject
             }
         });
 
-        CalculateMaxWidth();
+        //CalculateMaxWidth();
     }
 
     private void CalculateMaxWidth()
