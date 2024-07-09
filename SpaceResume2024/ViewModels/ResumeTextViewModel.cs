@@ -8,6 +8,8 @@ public partial class ResumeTextViewModel : ObservableObject
     #region Private Fields
 
     [ObservableProperty] private ResumeInfo? _resumeInfo;
+    [ObservableProperty] private ImageAssetPathModel? _imageAssetPathModel;
+    [ObservableProperty] private string? _planetName;
 
     #endregion Private Fields
 
@@ -18,9 +20,10 @@ public partial class ResumeTextViewModel : ObservableObject
         ResumeInfo ??= new ResumeInfo();
     }
 
-    public ResumeTextViewModel(ResumeInfo resumeInfo)
+    public ResumeTextViewModel(ResumeInfo resumeInfo, string? planetName)
     {
         ResumeInfo = resumeInfo;
+        PlanetName = planetName;
     }
 
     #endregion Public Constructors

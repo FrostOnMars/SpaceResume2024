@@ -17,7 +17,6 @@
     <None Remove="Resources\Images\PlutoRound.png" />
     <None Remove="Resources\Images\SaturnRound.png" />
     <None Remove="Resources\Images\UranusRound.png" />
-    <None Remove="Resources\Images\Venus.webp" />
     <None Remove="Resources\Images\VenusRound.png" />
   </ItemGroup>
 
@@ -49,9 +48,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Images\UranusRound.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Images\Venus.webp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Images\VenusRound.png">
