@@ -9,8 +9,16 @@ public partial class ResumeTextViewModel : ObservableObject
 
     [ObservableProperty] private ResumeInfo? _resumeInfo;
     [ObservableProperty] private ImageAssetPathModel? _imageAssetPathModel;
-    [ObservableProperty] private string? _planetName;
+    [ObservableProperty, NotifyPropertyChangedFor(nameof(PlanetImage))] private string _planetName;
+    //public string PlanetImage => PlanetMapping.GetPlanetImageAssetPath(_planetName);
+    [ObservableProperty] private string _planetImage;
+    //public string PlanetImage
+    //{
+    //    get => _planetImage;
+    //    set => SetProperty(ref _planetImage, value);
+    //}
 
+    
     #endregion Private Fields
 
     #region Public Constructors
@@ -24,7 +32,13 @@ public partial class ResumeTextViewModel : ObservableObject
     {
         ResumeInfo = resumeInfo;
         PlanetName = planetName;
+        PlanetImage = PlanetMapping.GetPlanetImageAssetPath(planetName);
     }
 
     #endregion Public Constructors
+
+    public void SetPlanetImage()
+    {
+        PlanetImage = PlanetMapping.GetPlanetImageAssetPath(PlanetName);
+    }
 }

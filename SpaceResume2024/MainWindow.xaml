@@ -24,7 +24,7 @@
             <ColumnDefinition Width="{Binding ScreenWidth}" />
         </Grid.ColumnDefinitions>
         <views:ResumeTextButton x:Name="Test" DataContext="{Binding ResumeTextViewModels[0]}" />
-        <!--<ListView x:Name="MyListView"
+        <ListView x:Name="MyListView"
                   HorizontalAlignment="Left"
                   Grid.Row="0"
                   Grid.Column="0"
@@ -36,26 +36,9 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <views:ResumeTextButton DataContext="{Binding}" />
-                    -->
         <!--<views:ResumeTextUserControl DataContext="{Binding}" />-->
-        <!--
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>-->
-        <!--<views:ResumeTextUserControl
-            DataContext="{Binding ResumeTextViewModels[0]}"
-            Loaded="OnLoaded_Button"
-            Grid.Row="0" />
-        <views:ResumeTextUserControl
-            DataContext="{Binding ResumeTextViewModels[1]}"
-            Grid.Row="1" />
-        <views:ResumeTextUserControl
-            DataContext="{Binding ResumeTextViewModels[2]}"
-            Loaded="OnLoaded_Button"
-            Grid.Row="0" />
-        <views:ResumeTextUserControl
-            DataContext="{Binding ResumeTextViewModels[3]}"
-            Loaded="OnLoaded_Button"
-            Grid.Row="0" />-->
+        </ListView>
     </Grid>
 </Window>

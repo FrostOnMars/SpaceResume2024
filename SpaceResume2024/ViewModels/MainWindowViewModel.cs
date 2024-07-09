@@ -70,17 +70,6 @@ public partial class MainWindowViewModel : ObservableObject
         MaxWidth = maxWidth;
     }
 
-    public void GetImageAssets()
-    {
-        var test = new ImageAssetPathModels();
-
-        foreach (var viewModel in ResumeTextViewModels)
-        {
-            //viewModel.ImageAssetPathModel = 
-
-        }
-    }
-
     public void GetResumeText()
     {
         //TODO: make method to get image assets
@@ -169,24 +158,55 @@ public partial class MainWindowViewModel : ObservableObject
         });
         ResumeTextViewModels.Add(new ResumeTextViewModel
         {
+            ResumeInfo = new ResumeInfo
+            {
+                Title = string.Empty,
+                Body = []
+            },
             PlanetName = Planets.Jupiter,
         });
         ResumeTextViewModels.Add(new ResumeTextViewModel
         {
+            ResumeInfo = new ResumeInfo
+            {
+                Title = string.Empty,
+                Body = []
+            },
             PlanetName = Planets.Saturn,
         }); ResumeTextViewModels.Add(new ResumeTextViewModel
         {
+            ResumeInfo = new ResumeInfo
+            {
+                Title = string.Empty,
+                Body = []
+            },
             PlanetName = Planets.Uranus,
         });
         ResumeTextViewModels.Add(new ResumeTextViewModel
         {
+            ResumeInfo = new ResumeInfo
+            {
+                Title = string.Empty,
+                Body = []
+            },
             PlanetName = Planets.Neptune,
         }); ResumeTextViewModels.Add(new ResumeTextViewModel
         {
+            ResumeInfo = new ResumeInfo
+            {
+                Title = string.Empty,
+                Body = []
+            },
             PlanetName = Planets.Pluto,
         });
 
+        foreach (var vm in ResumeTextViewModels)
+        {
+            vm.SetPlanetImage();
+        }
+
         //CalculateMaxWidth();
+
     }
 
     #endregion Public Methods
