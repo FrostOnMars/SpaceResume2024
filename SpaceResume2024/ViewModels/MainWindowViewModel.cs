@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using SpaceResume2024.Models;
 
@@ -11,6 +12,7 @@ public partial class MainWindowViewModel : ObservableObject
 
     //public List<ResumeTextViewModel> ResumeTextViewModels { get; } = [];
     [ObservableProperty] private ObservableCollection<ResumeTextViewModel> _resumeTextViewModels = new();
+    [ObservableProperty] private double _maxWidth;
     public double ScreenHeight { get; set; }
     public double ScreenWidth { get; set; }
 
@@ -91,6 +93,42 @@ public partial class MainWindowViewModel : ObservableObject
                 ]
             }
         });
+
+        //CalculateMaxWidth();
+    }
+
+    private void CalculateMaxWidth()
+    {
+        var maxWidth = (ResumeTextViewModels
+            .Select(resumeTextViewModel => new
+            {
+                resumeTextViewModel,
+                titleWidth = MeasureTextWidth(resumeTextViewModel.ResumeInfo.Title, 24, FontWeights.Bold)
+            })
+            .Select(@t => new { @t, bodyWidth = MeasureMaxBodyWidth(@t.resumeTextViewModel.ResumeInfo.Body, 16) })
+            .Select(@t => Math.Max(@t.@t.titleWidth, @t.bodyWidth))).Prepend(0).Max();
+        MaxWidth = maxWidth;
+    }
+
+    private static double MeasureTextWidth(string text, double fontSize, FontWeight fontWeight)
+    {
+        if (string.IsNullOrEmpty(text)) return 0;
+        
+        var formattedText = new FormattedText(
+            text,
+            System.Globalization.CultureInfo.CurrentCulture,
+            FlowDirection.LeftToRight,
+            new Typeface(new FontFamily("Segoe UI"), FontStyles.Normal, fontWeight, FontStretches.Normal),
+            fontSize,
+            Brushes.Black,
+            VisualTreeHelper.GetDpi(Application.Current.MainWindow).PixelsPerDip);
+
+        return formattedText.WidthIncludingTrailingWhitespace;
+    }
+
+    private static double MeasureMaxBodyWidth(IEnumerable<string> body, double fontSize)
+    {
+        return body.Select(line => MeasureTextWidth(line, fontSize, FontWeights.Normal)).Prepend(0).Max();
     }
 
     #endregion Public Methods

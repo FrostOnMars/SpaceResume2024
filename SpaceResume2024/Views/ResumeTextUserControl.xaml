@@ -4,14 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:SpaceResume2024.ViewModels"
-             xmlns:converters="clr-namespace:SpaceResume2024.Views.Converters"
+             xmlns:converters="clr-namespace:SpaceResume2024.Views.Converters" d:DataContext="{d:DesignInstance Type=local:ResumeTextViewModel}"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800"
              Background="White">
-    <UserControl.DataContext>
-        <local:ResumeTextViewModel />
-    </UserControl.DataContext>
     <UserControl.Resources>
+        <converters:NullToDefaultConverter x:Key="NullToDefaultConverter" />
         <converters:ResumeTextBodyConverter x:Key="ResumeTextBodyConverter" />
     </UserControl.Resources>
     <Grid>
@@ -30,7 +28,7 @@
         FontWeight="Bold"
         Grid.Row="0"
         Loaded="ProfessionalGoalsTitle_OnLoaded"
-        Text="{Binding ResumeInfo.Title}" />
+        Text="{Binding ResumeInfo.Title, Converter={StaticResource NullToDefaultConverter}, ConverterParameter='No Title Available'}" />
 
         <TextBlock
         x:Name="ProfessionalGoalsBody"

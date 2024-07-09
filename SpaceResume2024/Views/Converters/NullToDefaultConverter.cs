@@ -1,26 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Data;
 
 namespace SpaceResume2024.Views.Converters
 {
-    public class ResumeTextBodyConverter : IValueConverter
+    public class NullToDefaultConverter : IValueConverter
     {
-        #region Public Methods
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value is not List<string> list || list is null || list.Count == 0
-                ? "No Body Available"
-                : string.Join("\n", list);
+            return value ?? parameter;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
-
-        #endregion Public Methods
     }
 }
