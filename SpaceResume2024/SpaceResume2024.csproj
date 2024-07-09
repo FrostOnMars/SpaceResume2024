@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="Resources\Images\EarthRound.png" />
+    <None Remove="Resources\Images\Error.png" />
     <None Remove="Resources\Images\JupiterRound.png" />
     <None Remove="Resources\Images\MarsRound.png" />
     <None Remove="Resources\Images\MercuryRound.png" />
@@ -27,6 +28,9 @@
 
   <ItemGroup>
     <Resource Include="Resources\Images\EarthRound.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Error.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Images\JupiterRound.png">

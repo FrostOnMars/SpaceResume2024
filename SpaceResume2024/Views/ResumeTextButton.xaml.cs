@@ -17,12 +17,8 @@ public partial class ResumeTextButton : UserControl
 
     #endregion Public Constructors
 
-    #region Private Methods
-
-    private void SampleButton_OnClick(object sender, RoutedEventArgs e)
+    private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        //MessageBox.Show();
     }
-
-    #endregion Private Methods
 }

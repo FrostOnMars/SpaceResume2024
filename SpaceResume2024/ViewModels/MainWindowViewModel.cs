@@ -72,38 +72,49 @@ public partial class MainWindowViewModel : ObservableObject
 
     public void GetResumeText()
     {
-        //TODO: make method to get image assets
-        //ImageAssetPathModel = GetImageAssets();
-        //Match ViewModel to image assets by the title text
-        //ResumeTextViewModels.Add(/* imageAssetPath*/)
-
-        ResumeTextViewModels.Add(new ResumeTextViewModel(new ResumeInfo
+        ResumeTextViewModels.Add(new ResumeTextViewModel
         {
-            Title = "Professional Goals",
-            Body =
-            [
-                "To develop an in-depth understanding of a variety of object-oriented computer languages.",
-                "Grow my skills as a Developer and advance in my career.",
-                "Build a solid foundation for professional development by performing well in a big business setting.",
-                "If hired, will work hard to pursue advancement and training opportunities in a professional environment.",
-                "Interested in working with a business with a clear path to success for employees who work hard and deliver results."
-            ]
-        }, Planets.Mercury));
+            ResumeInfo = new ResumeInfo
+            {
+                Title = "Professional Goals",
+                Body =
+                [
+                    "To develop an in-depth understanding of a variety of object-oriented computer languages.",
+                    "Grow my skills as a Developer and advance in my career.",
+                    "Build a solid foundation for professional development by performing well in a big business setting.",
+                    "If hired, will work hard to pursue advancement and training opportunities in a professional environment.",
+                    "Interested in working with a business with a clear path to success for employees who work hard and deliver results."
+                ]
+            },
+            ImageAssetPathModel = new ImageAssetPathModel { Name = Planets.Mercury, Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Mercury) },
+            PlanetName = Planets.Mercury,
+            PlanetImage = PlanetMapping.GetPlanetImageAssetPath(Planets.Mercury)
+        });
 
-        ResumeTextViewModels.Add(new ResumeTextViewModel(new ResumeInfo
+        ResumeTextViewModels.Add(new ResumeTextViewModel
         {
-            Title = "Work Experience",
-            Body =
-            [
-                "Software Developer, 2019 - Present",
-                "Company Name, City, State",
-                "Responsibilities:",
-                "Developed and maintained software applications for various clients.",
-                "Worked with a team of developers to meet project requirements.",
-                "Participated in code reviews and provided feedback to other developers.",
-                "Collaborated with other departments to ensure project success."
-            ]
-        }, Planets.Venus));
+            ResumeInfo = new ResumeInfo
+            {
+                Title = "Work Experience",
+                Body =
+                [
+                    "Software Developer, 2019 - Present",
+                    "Company Name, City, State",
+                    "Responsibilities:",
+                    "Developed and maintained software applications for various clients.",
+                    "Worked with a team of developers to meet project requirements.",
+                    "Participated in code reviews and provided feedback to other developers.",
+                    "Collaborated with other departments to ensure project success."
+                ]
+            },
+            ImageAssetPathModel = new ImageAssetPathModel 
+            {
+                Name = Planets.Venus, 
+                Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Venus)
+            },
+            PlanetName = Planets.Venus,
+            PlanetImage = PlanetMapping.GetPlanetImageAssetPath(Planets.Venus)
+        });
 
         ResumeTextViewModels.Add(new ResumeTextViewModel
         {
@@ -120,8 +131,14 @@ public partial class MainWindowViewModel : ObservableObject
                     "Database Management Systems",
                     "Software Engineering"
                 ]
-            }, 
-            PlanetName = Planets.Earth
+            },
+            ImageAssetPathModel = new ImageAssetPathModel 
+            {
+                Name = Planets.Earth, 
+                Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Earth)
+            },
+            PlanetName = Planets.Earth,
+            PlanetImage = PlanetMapping.GetPlanetImageAssetPath(Planets.Earth)
         });
 
         ResumeTextViewModels.Add(new ResumeTextViewModel
@@ -138,32 +155,29 @@ public partial class MainWindowViewModel : ObservableObject
                     "Operating Systems: Windows, Linux"
                 ]
             },
-            PlanetName = Planets.Mars
-        });
-        ResumeTextViewModels.Add(new ResumeTextViewModel
-        {
-            ResumeInfo = new ResumeInfo
+            ImageAssetPathModel = new ImageAssetPathModel 
             {
-                Title = "Skills",
-                Body =
-                [
-                    "Programming Languages: C#, Java, Python",
-                    "Web Technologies: HTML, CSS, JavaScript",
-                    "Database Management: SQL, MySQL",
-                    "Version Control: Git, GitHub",
-                    "Operating Systems: Windows, Linux"
-                ]
+                Name = Planets.Mars, 
+                Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Mars)
             },
-            PlanetName = Planets.Mars
+            PlanetName = Planets.Mars,
+            PlanetImage = PlanetMapping.GetPlanetImageAssetPath(Planets.Mars)
         });
+
         ResumeTextViewModels.Add(new ResumeTextViewModel
         {
             ResumeInfo = new ResumeInfo
             {
                 Title = string.Empty,
                 Body = []
+            },
+            ImageAssetPathModel = new ImageAssetPathModel 
+            {
+                Name = Planets.Jupiter, 
+                Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Jupiter)
             },
             PlanetName = Planets.Jupiter,
+            PlanetImage = PlanetMapping.GetPlanetImageAssetPath(Planets.Jupiter)
         });
         ResumeTextViewModels.Add(new ResumeTextViewModel
         {
@@ -172,6 +186,12 @@ public partial class MainWindowViewModel : ObservableObject
                 Title = string.Empty,
                 Body = []
             },
+            ImageAssetPathModel = new ImageAssetPathModel 
+            {
+                Name = Planets.Saturn, 
+                Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Saturn)
+            },
+            PlanetImage = PlanetMapping.GetPlanetImageAssetPath(Planets.Saturn),
             PlanetName = Planets.Saturn,
         }); ResumeTextViewModels.Add(new ResumeTextViewModel
         {
@@ -180,7 +200,13 @@ public partial class MainWindowViewModel : ObservableObject
                 Title = string.Empty,
                 Body = []
             },
+            ImageAssetPathModel = new ImageAssetPathModel 
+            {
+                Name = Planets.Uranus, 
+                Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Uranus)
+            },
             PlanetName = Planets.Uranus,
+            PlanetImage = PlanetMapping.GetPlanetImageAssetPath(Planets.Uranus)
         });
         ResumeTextViewModels.Add(new ResumeTextViewModel
         {
@@ -189,7 +215,13 @@ public partial class MainWindowViewModel : ObservableObject
                 Title = string.Empty,
                 Body = []
             },
+            ImageAssetPathModel = new ImageAssetPathModel 
+            {
+                Name = Planets.Neptune, 
+                Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Neptune)
+            },
             PlanetName = Planets.Neptune,
+            PlanetImage = PlanetMapping.GetPlanetImageAssetPath(Planets.Neptune)
         }); ResumeTextViewModels.Add(new ResumeTextViewModel
         {
             ResumeInfo = new ResumeInfo
@@ -197,16 +229,19 @@ public partial class MainWindowViewModel : ObservableObject
                 Title = string.Empty,
                 Body = []
             },
+            ImageAssetPathModel = new ImageAssetPathModel 
+            {
+                Name = Planets.Pluto, 
+                Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Pluto)
+            },
             PlanetName = Planets.Pluto,
+            PlanetImage = PlanetMapping.GetPlanetImageAssetPath(Planets.Pluto)
         });
 
-        foreach (var vm in ResumeTextViewModels)
-        {
-            vm.SetPlanetImage();
-        }
-
-        //CalculateMaxWidth();
-
+        //foreach (var vm in ResumeTextViewModels)
+        //{
+        //    vm.SetPlanetImage();
+        //}
     }
 
     #endregion Public Methods
