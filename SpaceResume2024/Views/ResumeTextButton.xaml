@@ -14,10 +14,32 @@
     d:DesignWidth="200"
     mc:Ignorable="d">
     <UserControl.Resources>
+        <Style x:Key="CircularButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse
+                                Fill="{TemplateBinding Background}"
+                                Stroke="{TemplateBinding BorderBrush}"
+                                StrokeThickness="{TemplateBinding BorderThickness}" />
+                            <Viewbox>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Viewbox>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <converters:ImageSourceConverter x:Key="ImageSourceConverter" />
     </UserControl.Resources>
     <Grid>
-        <Button Click="ButtonBase_OnClick">
+        <Button
+            Width="200"
+            Height="200"
+            Background="Transparent"
+            Click="ButtonBase_OnClick"
+            Style="{StaticResource CircularButtonStyle}">
             <i:Interaction.Behaviors>
                 <viewModels:DropDownButtonBehaviorController />
             </i:Interaction.Behaviors>
@@ -26,10 +48,10 @@
                     <Image
                         Width="200"
                         Height="200"
-                        Margin="5"
-                        SnapsToDevicePixels="True"
-                        Source="{Binding PlanetImage, Converter={StaticResource ImageSourceConverter}}" />
-                    <Separator Margin="2,0">
+                        ClipToBounds="True"
+                        Source="{Binding PlanetImage, Converter={StaticResource ImageSourceConverter}}"
+                        Stretch="UniformToFill" />
+                    <!--<Separator Margin="2,0">
                         <Separator.LayoutTransform>
                             <TransformGroup>
                                 <TransformGroup.Children>
@@ -39,15 +61,15 @@
                                 </TransformGroup.Children>
                             </TransformGroup>
                         </Separator.LayoutTransform>
-                    </Separator>
-                    <Path
+                    </Separator>-->
+                    <!--<Path
                         Width="6"
                         Margin="2"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Data="F1 M 301.14,-189.041L 311.57,-189.041L 306.355,-182.942L 301.14,-189.041 Z "
                         Fill="#FF527DB5"
-                        Stretch="Uniform" />
+                        Stretch="Uniform" />-->
                 </StackPanel>
             </Button.Content>
             <Button.ContextMenu>

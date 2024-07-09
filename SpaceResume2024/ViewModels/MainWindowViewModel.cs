@@ -72,6 +72,7 @@ public partial class MainWindowViewModel : ObservableObject
 
     public void GetResumeText()
     {
+        ResumeTextViewModels.Clear();
         ResumeTextViewModels.Add(new ResumeTextViewModel
         {
             ResumeInfo = new ResumeInfo
