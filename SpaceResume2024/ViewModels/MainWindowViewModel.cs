@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Runtime.Versioning;
 using System.Windows;
 using System.Windows.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -13,6 +14,7 @@ public partial class MainWindowViewModel : ObservableObject
     //public List<ResumeTextViewModel> ResumeTextViewModels { get; } = [];
     [ObservableProperty] private ObservableCollection<ResumeTextViewModel> _resumeTextViewModels = new();
     [ObservableProperty] private double _maxWidth;
+    [ObservableProperty] private string _imageAssetPaths;
     public double ScreenHeight { get; set; }
     public double ScreenWidth { get; set; }
 
@@ -32,6 +34,11 @@ public partial class MainWindowViewModel : ObservableObject
 
     public void GetResumeText()
     {
+        //TODO: make method to get image assets
+        //ImageAssetPaths = GetImageAssets();
+        //Match ViewModel to image assets by the title text
+        //ResumeTextViewModels.Add(/* imageAssetPath*/)
+
         ResumeTextViewModels.Add(new ResumeTextViewModel(new ResumeInfo
         {
             Title = "Professional Goals",
