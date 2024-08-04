@@ -32,7 +32,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 ItemsSource="{Binding ResumeTextViewModels}"
-                Loaded="MyListView_OnLoaded" 
+                Loaded="MyListView_OnLoaded"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>

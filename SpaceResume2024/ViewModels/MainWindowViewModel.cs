@@ -108,9 +108,9 @@ public partial class MainWindowViewModel : ObservableObject
                     "Collaborated with other departments to ensure project success."
                 ]
             },
-            ImageAssetPathModel = new ImageAssetPathModel 
+            ImageAssetPathModel = new ImageAssetPathModel
             {
-                Name = Planets.Venus, 
+                Name = Planets.Venus,
                 Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Venus)
             },
             PlanetName = Planets.Venus,
@@ -133,9 +133,9 @@ public partial class MainWindowViewModel : ObservableObject
                     "Software Engineering"
                 ]
             },
-            ImageAssetPathModel = new ImageAssetPathModel 
+            ImageAssetPathModel = new ImageAssetPathModel
             {
-                Name = Planets.Earth, 
+                Name = Planets.Earth,
                 Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Earth)
             },
             PlanetName = Planets.Earth,
@@ -156,9 +156,9 @@ public partial class MainWindowViewModel : ObservableObject
                     "Operating Systems: Windows, Linux"
                 ]
             },
-            ImageAssetPathModel = new ImageAssetPathModel 
+            ImageAssetPathModel = new ImageAssetPathModel
             {
-                Name = Planets.Mars, 
+                Name = Planets.Mars,
                 Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Mars)
             },
             PlanetName = Planets.Mars,
@@ -172,9 +172,9 @@ public partial class MainWindowViewModel : ObservableObject
                 Title = string.Empty,
                 Body = []
             },
-            ImageAssetPathModel = new ImageAssetPathModel 
+            ImageAssetPathModel = new ImageAssetPathModel
             {
-                Name = Planets.Jupiter, 
+                Name = Planets.Jupiter,
                 Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Jupiter)
             },
             PlanetName = Planets.Jupiter,
@@ -187,9 +187,9 @@ public partial class MainWindowViewModel : ObservableObject
                 Title = string.Empty,
                 Body = []
             },
-            ImageAssetPathModel = new ImageAssetPathModel 
+            ImageAssetPathModel = new ImageAssetPathModel
             {
-                Name = Planets.Saturn, 
+                Name = Planets.Saturn,
                 Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Saturn)
             },
             PlanetImage = PlanetMapping.GetPlanetImageAssetPath(Planets.Saturn),
@@ -201,9 +201,9 @@ public partial class MainWindowViewModel : ObservableObject
                 Title = string.Empty,
                 Body = []
             },
-            ImageAssetPathModel = new ImageAssetPathModel 
+            ImageAssetPathModel = new ImageAssetPathModel
             {
-                Name = Planets.Uranus, 
+                Name = Planets.Uranus,
                 Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Uranus)
             },
             PlanetName = Planets.Uranus,
@@ -216,9 +216,9 @@ public partial class MainWindowViewModel : ObservableObject
                 Title = string.Empty,
                 Body = []
             },
-            ImageAssetPathModel = new ImageAssetPathModel 
+            ImageAssetPathModel = new ImageAssetPathModel
             {
-                Name = Planets.Neptune, 
+                Name = Planets.Neptune,
                 Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Neptune)
             },
             PlanetName = Planets.Neptune,
@@ -230,9 +230,9 @@ public partial class MainWindowViewModel : ObservableObject
                 Title = string.Empty,
                 Body = []
             },
-            ImageAssetPathModel = new ImageAssetPathModel 
+            ImageAssetPathModel = new ImageAssetPathModel
             {
-                Name = Planets.Pluto, 
+                Name = Planets.Pluto,
                 Path = PlanetMapping.GetPlanetImageAssetPath(Planets.Pluto)
             },
             PlanetName = Planets.Pluto,

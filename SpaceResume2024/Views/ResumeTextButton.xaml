@@ -1,13 +1,12 @@
 ﻿<UserControl
     x:Class="SpaceResume2024.Views.ResumeTextButton"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="clr-namespace:SpaceResume2024.Views.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:designData="clr-namespace:SpaceResume2024.Views.DesignTimeData"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:SpaceResume2024.ViewModels"
+    xmlns:converters="clr-namespace:SpaceResume2024.Views.Converters"
     d:DataContext="{d:DesignInstance Type=viewModels:ResumeTextViewModel,
                                      IsDesignTimeCreatable=True}"
     d:DesignHeight="200"

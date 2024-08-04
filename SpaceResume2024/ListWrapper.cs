@@ -2,10 +2,13 @@ namespace SpaceResume2024;
 
 public class ListWrapper : List<string>
 {
+    #region Public Constructors
+
     public ListWrapper(IEnumerable<string> collection) : base(collection)
     {
         AddRange(collection);
     }
+
     public ListWrapper()
     {
     }
@@ -14,4 +17,6 @@ public class ListWrapper : List<string>
     {
         AddRange(values.Split('\n'));
     }
+
+    #endregion Public Constructors
 }

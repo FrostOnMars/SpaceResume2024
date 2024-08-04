@@ -17,8 +17,12 @@ public partial class ResumeTextButton : UserControl
 
     #endregion Public Constructors
 
+    #region Private Methods
+
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
         //MessageBox.Show();
     }
+
+    #endregion Private Methods
 }

@@ -3,9 +3,9 @@
     x:Class="SpaceResume2024.Views.DesignTimeData.ResumeTextDesignTimeData"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:spaceResume2024="clr-namespace:SpaceResume2024"
-    xmlns:viewModels="clr-namespace:SpaceResume2024.ViewModels">
+    xmlns:viewModels="clr-namespace:SpaceResume2024.ViewModels"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime">
     <viewModels:ResumeTextViewModel
         x:Key="ResumeTextDesignData"
         xmlns:models="clr-namespace:SpaceResume2024.Models"

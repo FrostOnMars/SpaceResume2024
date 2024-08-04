@@ -2,14 +2,20 @@
 
 namespace SpaceResume2024.Models;
 
-public class ImageAssetPathModel 
+public class ImageAssetPathModel
 {
+    #region Public Properties
+
     public string Name { get; set; } = string.Empty;
     public string Path { get; set; } = string.Empty;
+
+    #endregion Public Properties
 }
 
 public class ImageAssetPathModels : ObservableCollection<ImageAssetPathModel>
 {
+    #region Public Constructors
+
     public ImageAssetPathModels()
     {
         Add(new ImageAssetPathModel { Name = "Mercury", Path = "Resources/Images/MercuryRound.png" });
@@ -22,5 +28,8 @@ public class ImageAssetPathModels : ObservableCollection<ImageAssetPathModel>
         Add(new ImageAssetPathModel { Name = "Neptune", Path = "Resources/Images/MercuryRound.png" });
         Add(new ImageAssetPathModel { Name = "Pluto", Path = "Resources/Images/MercuryRound.png" });
     }
+
+    #endregion Public Constructors
+
     //C:\Code\SpaceResume2024\SpaceResume2024\Resources\Images\JupiterRound.png
 }

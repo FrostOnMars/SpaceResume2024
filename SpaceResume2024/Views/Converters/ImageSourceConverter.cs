@@ -6,6 +6,8 @@ namespace SpaceResume2024.Views.Converters;
 
 public class ImageSourceConverter : IValueConverter
 {
+    #region Public Methods
+
     public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is string path && !string.IsNullOrEmpty(path))
@@ -19,4 +21,6 @@ public class ImageSourceConverter : IValueConverter
     {
         throw new NotImplementedException();
     }
+
+    #endregion Public Methods
 }
