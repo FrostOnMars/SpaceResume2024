@@ -22,7 +22,7 @@
         Loaded="ProfessionalGoalsTitle_OnLoaded"
         Text="{Binding ResumeInfo.Title, Converter={StaticResource NullToDefaultConverter}, ConverterParameter='No Title Available'}" />
 
-        <TextBlock 
+        <TextBlock
         x:Name="ProfessionalGoalsBody"
         Style="{StaticResource CenteredTextBlockStyle}"
         Grid.Row="1"

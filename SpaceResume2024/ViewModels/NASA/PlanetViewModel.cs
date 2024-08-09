@@ -5,22 +5,21 @@ namespace SpaceResume2024.ViewModels.NASA;
 
 public partial class PlanetViewModel : ObservableObject
 {
+    [ObservableProperty] public string _name;
     [ObservableProperty] private Planet _planet;
-    [ObservableProperty] private double diameter;
-    [ObservableProperty] private string planetColor;
-    [ObservableProperty] private double _x;
-    [ObservableProperty] private double _y;
     [ObservableProperty] private double _semiMajorAxis;
     [ObservableProperty] private double _semiMinorAxis;
-    [ObservableProperty] public string _name;
+    [ObservableProperty] private double _x;
+    [ObservableProperty] private double _y;
+    [ObservableProperty] private double diameter;
+    [ObservableProperty] private string planetColor;
 
     //public Duration OrbitDuration => ComputeScaledOrbitDuration();
 
     public PlanetViewModel()
     {
 #if DESIGN_TIME
-        // Assign mock values to the properties
-        // This data will be used only at design-time.
+        // Assign mock values to the properties This data will be used only at design-time.
         this.planetColor = "Orange";
         this.Diameter = 50;
 #endif
@@ -28,7 +27,7 @@ public partial class PlanetViewModel : ObservableObject
 
     public PlanetViewModel(Planet planet)
     {
-        this._planet = planet;
+        _planet = planet;
         planetColor = "Orange";
         //Diameter = planet.Diameter;
         //var point = GetStartingCoordinates();
@@ -50,27 +49,16 @@ public partial class PlanetViewModel : ObservableObject
     //            RadiusY = Planet.OrbitalData.semiMinorAxis
     //        };
 
-    //        var figure = new PathFigure
-    //        {
-    //            StartPoint = new Point(Planet.OrbitalData.semimajorAxis, 0),
-    //            IsClosed = true
-    //        };
+    // var figure = new PathFigure { StartPoint = new Point(Planet.OrbitalData.semimajorAxis, 0),
+    // IsClosed = true };
 
-    //        figure.Segments.Add(new ArcSegment
-    //        {
-    //            Point = new Point(-Planet.OrbitalData.semimajorAxis, 0),
-    //            Size = new Size(Planet.OrbitalData.semimajorAxis, Planet.OrbitalData.semiMinorAxis),
-    //            IsLargeArc = true,
-    //            SweepDirection = SweepDirection.Clockwise
-    //        });
+    // figure.Segments.Add(new ArcSegment { Point = new Point(-Planet.OrbitalData.semimajorAxis, 0),
+    // Size = new Size(Planet.OrbitalData.semimajorAxis, Planet.OrbitalData.semiMinorAxis),
+    // IsLargeArc = true, SweepDirection = SweepDirection.Clockwise });
 
-    //        figure.Segments.Add(new ArcSegment
-    //        {
-    //            Point = new Point(Planet.OrbitalData.semimajorAxis, 0),
-    //            Size = new Size(Planet.OrbitalData.semimajorAxis, Planet.OrbitalData.semiMinorAxis),
-    //            IsLargeArc = true,
-    //            SweepDirection = SweepDirection.Clockwise
-    //        });
+    // figure.Segments.Add(new ArcSegment { Point = new Point(Planet.OrbitalData.semimajorAxis, 0),
+    // Size = new Size(Planet.OrbitalData.semimajorAxis, Planet.OrbitalData.semiMinorAxis),
+    // IsLargeArc = true, SweepDirection = SweepDirection.Clockwise });
 
     //        return new PathGeometry
     //        {
@@ -91,7 +79,7 @@ public partial class PlanetViewModel : ObservableObject
     //    //TODO: REMOVE ADDITION TO SCALE FACTOR. TESTING THIS ONLY.
     //    var scaledTime = (originalOrbitTime / scaleFactor);
 
-    //    var scaledTimeInSeconds = scaledTime * 24 * 60 * 60;
+    // var scaledTimeInSeconds = scaledTime * 24 * 60 * 60;
 
     //    return new Duration(TimeSpan.FromSeconds(scaledTimeInSeconds));
     //}
@@ -122,10 +110,12 @@ public partial class PlanetViewModel : ObservableObject
     // <summary>
     // Calculates the position (x, y) in a 2D plane based on polar coordinates.
     // </summary>
-    // <param name="r">Distance from central body.</param>
-    // <param name="nu">True anomaly.</param>
-    // <param name="omega">Argument of periapsis (angle between the reference direction and the periapsis).</param>
-    // <returns>Position (x, y) in a 2D plane.</returns>
+    // <param name="r">     Distance from central body. </param>
+    // <param name="nu">    True anomaly. </param>
+    // <param name="omega">
+    // Argument of periapsis (angle between the reference direction and the periapsis).
+    // </param>
+    // <returns> Position (x, y) in a 2D plane. </returns>
 
     //private static (double, double) CalculatePosition(double r, double nu, double omega)
     //{
@@ -146,13 +136,12 @@ public partial class PlanetViewModel : ObservableObject
     //    var nu = DegreesToRadians(_planet.OrbitalData.mainAnomaly); // True anomaly in radians
     //    var omega = DegreesToRadians(_planet.OrbitalData.argPeriapsis); // Argument of periapsis in radians
 
-    //    // Calculate the distance from the central body at the current true anomaly
-    //    var r = CalculateDistance(a, e, nu);
+    // // Calculate the distance from the central body at the current true anomaly var r =
+    // CalculateDistance(a, e, nu);
 
-    //    // Convert the polar coordinates to Cartesian coordinates
-    //    var (x, y) = CalculatePosition(r, nu, omega);
+    // // Convert the polar coordinates to Cartesian coordinates var (x, y) = CalculatePosition(r,
+    // nu, omega);
 
     //    return new Point(x + 400, y+400);
     //}
 }
-

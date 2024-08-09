@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Media;
 
 namespace SpaceResume2024.Views.Converters;
 
-public class GeometryToPathGeometryConverter : IValueConverter
+public class GeometryConverter : IValueConverter
 {
+    #region Public Methods
+
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         return value as PathGeometry;
@@ -20,4 +17,6 @@ public class GeometryToPathGeometryConverter : IValueConverter
     {
         throw new NotImplementedException();
     }
+
+    #endregion Public Methods
 }

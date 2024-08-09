@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SpaceResume2024.ViewModels.EventArgs;
+using SpaceResume2024.ViewModels.NASA;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using SpaceResume2024.ViewModels.EventArgs;
-using SpaceResume2024.ViewModels.NASA;
 
 namespace SpaceResume2024.Views;
 
@@ -22,7 +10,7 @@ namespace SpaceResume2024.Views;
 /// </summary>
 public partial class OrbitalPathControl : UserControl
 {
-    public event EventHandler<PlanetViewModelEventArgs> OrbitalPathControlLoaded;
+    #region Public Constructors
 
     public OrbitalPathControl()
     {
@@ -39,14 +27,27 @@ public partial class OrbitalPathControl : UserControl
         //mainWindow.OrbitalPathControlLoaded += HandleOrbitalPathControlLoaded;
     }
 
-    private void HandleOrbitalPathControlLoaded(object sender, PlanetViewModelEventArgs e)
-    {
-        this.DataContext = e.PlanetViewModel;
-    }
+    #endregion Public Constructors
+
+    #region Public Events
+
+    public event EventHandler<PlanetViewModelEventArgs> OrbitalPathControlLoaded;
+
+    #endregion Public Events
+
+    #region Public Methods
 
     public void PlanetButton_Click(object sender, RoutedEventArgs e)
     {
+    }
 
+    #endregion Public Methods
+
+    #region Private Methods
+
+    private void HandleOrbitalPathControlLoaded(object sender, PlanetViewModelEventArgs e)
+    {
+        DataContext = e.PlanetViewModel;
     }
 
     private void OrbitalPathControl_Loaded(object sender, RoutedEventArgs e)
@@ -54,11 +55,12 @@ public partial class OrbitalPathControl : UserControl
         // Assuming OrbitalPathControlViewModel is the DataContext for your OrbitalPathControl
         if (DataContext is OrbitalPathControlViewModel viewModel)
         {
-            var planetViewModel = viewModel.PlanetViewModel;  // Access the PlanetViewModel property
+            var planetViewModel = viewModel.PlanetViewModel; // Access the PlanetViewModel property
 
             // Now, invoke the event
             OrbitalPathControlLoaded?.Invoke(this, new PlanetViewModelEventArgs(planetViewModel));
         }
     }
 
+    #endregion Private Methods
 }

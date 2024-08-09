@@ -5,12 +5,12 @@ namespace SpaceResume2024.Views.Converters;
 
 public class SubtractValueConverter : IValueConverter
 {
+    #region Public Methods
+
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if (value is double doubleValue && parameter is string stringParameter && double.TryParse(stringParameter, out var subtractValue))
-        {
-            return doubleValue - subtractValue;
-        }
+        if (value is double doubleValue && parameter is string stringParameter &&
+            double.TryParse(stringParameter, out var subtractValue)) return doubleValue - subtractValue;
         return value;
     }
 
@@ -18,4 +18,6 @@ public class SubtractValueConverter : IValueConverter
     {
         throw new NotImplementedException();
     }
+
+    #endregion Public Methods
 }

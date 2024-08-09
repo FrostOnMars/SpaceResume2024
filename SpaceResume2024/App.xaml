@@ -10,9 +10,7 @@
                 <ResourceDictionary Source="/Resources/Dictionaries/PlanetaryButtonDictionary.xaml" />
                 <ResourceDictionary Source="/Resources/Dictionaries/ConverterDictionary.xaml" />
                 <ResourceDictionary Source="/Resources/Dictionaries/TextBlockStyleDictionary.xaml" />
-
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
     </Application.Resources>
 </Application>

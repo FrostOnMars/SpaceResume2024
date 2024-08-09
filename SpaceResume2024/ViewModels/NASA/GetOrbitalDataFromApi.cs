@@ -7,17 +7,25 @@ namespace SpaceResume2024.ViewModels.NASA;
 
 public class GetOrbitalDataFromApi
 {
-    private readonly BigBang _instance = BigBang.Instance;
-    private readonly DataSources _dataSources = new();
+    #region Public Delegates
 
     public delegate void ErrorHandler(string errorMessage);
+
+    #endregion Public Delegates
+
+    #region Public Events
+
     public static event ErrorHandler? ErrorOccurred;
 
+    #endregion Public Events
+
     #region GetPlanetDataFromRestApi() uses AssembleUrl() & requests API Client
+
     public string? GetPlanetDataFromRestApi(string planetName)
     {
         var client = new RestClient(_dataSources.SolarSystemAPI.AssembleUrl(PlanetaryData.OrbitalData));
-        var request = new RestRequest($"{_dataSources.SolarSystemAPI.AssembleUrl(PlanetaryData.OrbitalData)}{planetName}");
+        var request =
+            new RestRequest($"{_dataSources.SolarSystemAPI.AssembleUrl(PlanetaryData.OrbitalData)}{planetName}");
 
         var response = client.Execute(request);
 
@@ -26,9 +34,10 @@ public class GetOrbitalDataFromApi
             : string.Empty;
     }
 
-    #endregion
+    #endregion GetPlanetDataFromRestApi() uses AssembleUrl() & requests API Client
 
     #region GetDataFromRestApi() names the planets, uses Terraform(), and deserializes Json
+
     private void GetDataFromRestApi()
     {
         try
@@ -49,10 +58,8 @@ public class GetOrbitalDataFromApi
                          .Select(GetPlanetDataFromRestApi)
                          .Where(jsonString => string
                              .IsNullOrEmpty(jsonString) == false))
-            {
                 _instance.Planets
                     .Add(Planet.Terraform(JsonConvert.DeserializeObject<OrbitalDataModel>(jsonString)));
-            }
         }
         catch (Exception ex)
         {
@@ -60,9 +67,11 @@ public class GetOrbitalDataFromApi
             ErrorOccurred?.Invoke(ex.Message);
         }
     }
-    #endregion// GetDataFromRestApi() names the planets
+
+    #endregion GetDataFromRestApi() names the planets, uses Terraform(), and deserializes Json
 
     #region GetData() uses GetPlanetDataFromRestApi(), uses methods from TransformData to scale size.
+
     public void GetData(PlanetaryData dataType, double screenWidth, double screenHeight)
     {
         try
@@ -73,6 +82,7 @@ public class GetOrbitalDataFromApi
                     GetDataFromRestApi();
                     TransformDataFromApi.ToUsableSizes(screenWidth, screenHeight);
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(dataType), dataType, null);
             }
@@ -83,5 +93,12 @@ public class GetOrbitalDataFromApi
         }
     }
 
-    #endregion
+    #endregion GetData() uses GetPlanetDataFromRestApi(), uses methods from TransformData to scale size.
+
+    #region Private Fields
+
+    private readonly DataSources _dataSources = new();
+    private readonly BigBang _instance = BigBang.Instance;
+
+    #endregion Private Fields
 }

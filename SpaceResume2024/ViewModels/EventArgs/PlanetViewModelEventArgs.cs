@@ -4,10 +4,18 @@ namespace SpaceResume2024.ViewModels.EventArgs;
 
 public class PlanetViewModelEventArgs : System.EventArgs
 {
-    public PlanetViewModel PlanetViewModel { get; }
+    #region Public Constructors
 
     public PlanetViewModelEventArgs(PlanetViewModel planetViewModel)
     {
         PlanetViewModel = planetViewModel;
     }
+
+    #endregion Public Constructors
+
+    #region Public Properties
+
+    public PlanetViewModel PlanetViewModel { get; }
+
+    #endregion Public Properties
 }

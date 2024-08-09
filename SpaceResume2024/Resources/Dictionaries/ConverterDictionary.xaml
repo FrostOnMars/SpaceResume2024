@@ -2,9 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="clr-namespace:SpaceResume2024.Views.Converters">
 
-
-        <converters:NullToDefaultConverter x:Key="NullToDefaultConverter" />
-        <converters:ResumeTextBodyConverter x:Key="ResumeTextBodyConverter" />
-        <converters:HalfValueConverter x:Key="HalfValueConverter" />
-
+    <converters:CenteringConverter x:Key="CenteringConverter" />
+    <converters:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+    <converters:GeometryToPathGeometryConverter x:Key="GeometryConverter" />
+    <converters:HalfValueConverter x:Key="HalfValueConverter" />
+    <converters:HalfValueNegateConverter x:Key="HalfValueNegateConverter" />
+    <converters:ImageSourceConverter x:Key="ImageSourceConverter" />
+    <converters:MouseTrackerConverter x:Key="MouseTrackerConverter" />
+    <converters:NullToDefaultConverter x:Key="NullToDefaultConverter" />
+    <converters:ResumeTextBodyConverter x:Key="ResumeTextBodyConverter" />
+    <converters:SizeConverter x:Key="SizeConverter" />
+    <converters:SubtractValueConverter x:Key="SubtractValueConverter" />
 </ResourceDictionary>

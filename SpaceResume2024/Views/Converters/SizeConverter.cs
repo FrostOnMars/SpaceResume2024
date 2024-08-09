@@ -6,6 +6,8 @@ namespace SpaceResume2024.Views.Converters;
 
 public class SizeConverter : IValueConverter
 {
+    #region Public Methods
+
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is double d)
@@ -17,4 +19,6 @@ public class SizeConverter : IValueConverter
     {
         throw new NotImplementedException();
     }
+
+    #endregion Public Methods
 }

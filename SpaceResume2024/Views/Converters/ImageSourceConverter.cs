@@ -11,9 +11,7 @@ public class ImageSourceConverter : IValueConverter
     public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is string path && !string.IsNullOrEmpty(path))
-        {
             return new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
-        }
         return null;
     }
 

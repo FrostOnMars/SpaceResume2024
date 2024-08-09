@@ -1,26 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SpaceResume2024.Models.ResumeModels;
+﻿namespace SpaceResume2024.Models.ResumeModels;
 
 [Skills]
 public class SqlSkillsModel
 {
-    public int? AutoId { get; set; }
-    public string? SkillType { get; set; }
-    public string? Skill { get; set; }
-    public string? ExampleWhereUsed { get; set; }
+    #region Public Constructors
 
     /// <summary>
-    ///  This class contains properties for the SQL Skills Model.
+    /// This class contains properties for the SQL Skills Model.
     /// </summary>
     public SqlSkillsModel()
     {
-
     }
+
+    #endregion Public Constructors
+
+    #region Public Properties
+
+    public int? AutoId { get; set; }
+    public string? ExampleWhereUsed { get; set; }
+    public string? Skill { get; set; }
+    public string? SkillType { get; set; }
+
+    #endregion Public Properties
 }
 
 public class SkillsAttribute : Attribute

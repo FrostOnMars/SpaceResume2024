@@ -1,10 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using SpaceResume2024.ViewModels;
-using SpaceResume2024.ViewModels.NASA;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 
@@ -15,13 +10,6 @@ namespace SpaceResume2024;
 /// </summary>
 public partial class MainWindow : Window
 {
-    #region Private Fields
-    private MainWindowViewModel viewModel => DataContext as MainWindowViewModel;
-
-    private readonly MainWindowViewModel _viewModel = new();
-
-    #endregion Private Fields
-
     #region Public Constructors
 
     public MainWindow()
@@ -51,8 +39,14 @@ public partial class MainWindow : Window
         _viewModel.GetResumeText();
         ;
     }
-}
 
+    #region Private Fields
+
+    private readonly MainWindowViewModel _viewModel = new();
+    private MainWindowViewModel viewModel => DataContext as MainWindowViewModel;
+
+    #endregion Private Fields
+}
 
 public partial class MainWindow : Window
 {
@@ -64,11 +58,6 @@ public partial class MainWindow : Window
     //    OrbitalPathControlLoaded?.Invoke(this, new PlanetViewModelEventArgs(viewModel));
     //}
 
-
-
-
-
-   
     //private void LoopThatBanjoBaby()
     //{
     //    MediaPlayer.Position = TimeSpan.Zero; // Reset the media's position to the start.
@@ -80,18 +69,44 @@ public partial class MainWindow : Window
     //    LoopThatBanjoBaby();
     //}
 
-    private void MouseTracker_OnMouseMove(object sender, MouseEventArgs e)
+    #region Private Methods
+
+    private void Button1_OnClick(object sender, RoutedEventArgs e)
     {
-        viewModel.UpdateCoordinates(e.GetPosition(this));
     }
+
+    private void Button2_OnClick(object sender, RoutedEventArgs e)
+    {
+    }
+
+    private void Button3_OnClick(object sender, RoutedEventArgs e)
+    {
+    }
+
+    private void Button4_OnClick(object sender, RoutedEventArgs e)
+    {
+    }
+
+    private void Button5_OnClick(object sender, RoutedEventArgs e)
+    {
+    }
+
+    private void Button6_OnClick(object sender, RoutedEventArgs e)
+    {
+    }
+
+    private void Button7_OnClick(object sender, RoutedEventArgs e)
+    {
+    }
+
     private void MainWindow_Loaded(object sender, RoutedEventArgs e)
     {
-        // Access the ActualHeight and ActualWidth properties of the window to automatically set the grid size
+        // Access the ActualHeight and ActualWidth properties of the window to automatically set the
+        // grid size
         TheMainWindow.Height = ActualHeight;
         TheMainWindow.Width = ActualWidth;
         //MediaPlayer.Source = new Uri(@"C:\Code\InteractiveResume\InteractiveResume\Resources\Deep Space Banjo.wav", UriKind.Absolute);
         //MediaPlayer.Play();
-
 
         // uh oh bad code, shouldn't be calling on other view models from here
         //foreach (var planetViewModel in viewModel.PlanetViewModels)
@@ -100,49 +115,19 @@ public partial class MainWindow : Window
         //}
     }
 
-    private void Button1_OnClick(object sender, RoutedEventArgs e)
-    {
-
-    }
-
     private void MediaPlayer_MediaFailed(object sender, ExceptionRoutedEventArgs e)
     {
-        MessageBox.Show($"Media failed to load/play. Error: {e.ErrorException.Message}", "Media Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        MessageBox.Show($"Media failed to load/play. Error: {e.ErrorException.Message}", "Media Error",
+            MessageBoxButton.OK, MessageBoxImage.Error);
     }
 
-
-    private void Button2_OnClick(object sender, RoutedEventArgs e)
+    private void MouseTracker_OnMouseMove(object sender, MouseEventArgs e)
     {
-
-    }
-
-    private void Button3_OnClick(object sender, RoutedEventArgs e)
-    {
-
-    }
-
-    private void Button4_OnClick(object sender, RoutedEventArgs e)
-    {
-
-    }
-
-    private void Button5_OnClick(object sender, RoutedEventArgs e)
-    {
-
-    }
-
-    private void Button6_OnClick(object sender, RoutedEventArgs e)
-    {
-
-    }
-    private void Button7_OnClick(object sender, RoutedEventArgs e)
-    {
-
+        viewModel.UpdateCoordinates(e.GetPosition(this));
     }
 
     //private void OnClick(object sender, RoutedEventArgs e)
     //{
-
     //    var planetModels = SqlController.GetAllPlanetModels();
     //    ;
 
@@ -150,17 +135,19 @@ public partial class MainWindow : Window
 
     private void OnEnter(object sender, DragEventArgs e)
     {
-
     }
 
     private void OnLeave(object sender, DragEventArgs e)
     {
-
     }
 
+    #endregion Private Methods
+
     #region Sql button commands stored here.
+
     //var header = SqlController.GetAllResumeHeaders();
     //var education = SqlController.GetAllResumeEducationModels();
     //var skills = SqlController.GetAllResumeSkills();
-    #endregion
+
+    #endregion Sql button commands stored here.
 }

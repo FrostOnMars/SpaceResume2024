@@ -1,11 +1,11 @@
 ﻿<UserControl x:Class="SpaceResume2024.Views.OrbitalPathControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:SpaceResume2024.Views"
              xmlns:nasa="clr-namespace:SpaceResume2024.ViewModels.NASA"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DataContext="{d:DesignInstance {x:Type nasa:OrbitalPathControlViewModel}, d:IsDesignTimeCreatable=True}">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -18,15 +18,14 @@
     <Canvas>
 
         <!-- Orbital Path -->
-        <Ellipse Width="{Binding SemiMajorAxis}" 
-                 Height="{Binding SemiMinorAxis}" 
-                 Stroke="Blue" 
-                 StrokeThickness="2"/>
+        <Ellipse Width="{Binding SemiMajorAxis}"
+                 Height="{Binding SemiMinorAxis}"
+                 Stroke="Blue"
+                 StrokeThickness="2" />
 
         <!-- Planet Control -->
-        <local:PlanetControl x:Name="Planet" 
-                             Canvas.Left="{Binding X}" 
+        <local:PlanetControl x:Name="Planet"
+                             Canvas.Left="{Binding X}"
                              Canvas.Top="{Binding Y}" />
-
     </Canvas>
 </UserControl>

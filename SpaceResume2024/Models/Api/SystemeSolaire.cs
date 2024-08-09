@@ -4,8 +4,7 @@ namespace SpaceResume2024.Models.Api;
 
 public class SystemeSolaire
 {
-    private const string BaseUrl = "https://api.le-systeme-solaire.net/";
-    private const string OrbitalDataUrl = "/rest/bodies/";
+    #region Public Methods
 
     public string AssembleUrl(PlanetaryData type)
     {
@@ -14,7 +13,16 @@ public class SystemeSolaire
             PlanetaryData.OrbitalData => $"{BaseUrl}{OrbitalDataUrl}",
             //PlanetaryData.PlanetDescription => $"{_baseUrl}{PlanetDescriptionUrl}",
             //PlanetaryData.PlanetCoordinates => $"{_baseUrl}{CoordinatesUrl}",
-            _ => string.Empty,
+            _ => string.Empty
         };
     }
+
+    #endregion Public Methods
+
+    #region Private Fields
+
+    private const string BaseUrl = "https://api.le-systeme-solaire.net/";
+    private const string OrbitalDataUrl = "/rest/bodies/";
+
+    #endregion Private Fields
 }

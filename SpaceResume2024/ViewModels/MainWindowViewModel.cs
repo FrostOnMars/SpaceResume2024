@@ -23,34 +23,46 @@ public partial class MainWindowViewModel : ObservableObject
     #endregion Public Constructors
 
     #region Public Properties
+
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(ClickCommand))]
     [NotifyPropertyChangedFor(nameof(FullName))]
     private string? _firstName = "Mikayla";
+
+    [ObservableProperty] private string? _fullName;
+
+    [ObservableProperty] private ObservableCollection<ImageAssetPathModel> _imageAssetPaths = [];
 
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(ClickCommand))]
     [NotifyPropertyChangedFor(nameof(FullName))]
     private string? _lastName = "Martin";
 
-    [ObservableProperty] private string? _fullName;
+    [ObservableProperty] private double _maxWidth;
+
+    [ObservableProperty] private string? _mouseCoordinates;
 
     [ObservableProperty]
     private ObservableCollection<PlanetViewModel> _planetViewModels;
 
-    [ObservableProperty] private double _screenWidth;
-    [ObservableProperty] private double _screenHeight;
-    [ObservableProperty] private string? _mouseCoordinates;
-    [ObservableProperty] private ObservableCollection<ImageAssetPathModel> _imageAssetPaths = [];
-
-    [ObservableProperty] private double _maxWidth;
-
     //public List<ResumeTextViewModel> ResumeTextViewModels { get; } = [];
     [ObservableProperty] private ObservableCollection<ResumeTextViewModel> _resumeTextViewModels = [];
+
+    [ObservableProperty] private double _screenHeight;
+    [ObservableProperty] private double _screenWidth;
 
     #endregion Public Properties
 
     #region Public Methods
+
+    private bool CanClick => FirstName == "Mikayla" && LastName == "Martin";
+
+    private static void HandleOrbitalDataError(string errorMessage)
+    {
+        // Here, you need to make sure that you display the message box on the UI thread. If using
+        // MVVM properly, you'd typically send a message to the view or use some service to show the error.
+        MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+    }
 
     private static double MeasureMaxBodyWidth(IEnumerable<string> body, double fontSize)
     {
@@ -260,13 +272,6 @@ public partial class MainWindowViewModel : ObservableObject
         //    vm.SetPlanetImage();
         //}
     }
-    private static void HandleOrbitalDataError(string errorMessage)
-    {
-        // Here, you need to make sure that you display the message box on the UI thread.
-        // If using MVVM properly, you'd typically send a message to the view 
-        // or use some service to show the error.
-        MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-    }
 
     public void UpdateCoordinates(Point point)
     {
@@ -279,24 +284,12 @@ public partial class MainWindowViewModel : ObservableObject
         MouseCoordinates = $"X: {point.X:N0}, Y: {point.Y:N0}";
     }
 
-
-    [RelayCommand(CanExecute = nameof(CanClick))]
-    public void Click()
-    {
-        FirstName = "Jon";
-        LastName = "Martin";
-        FullName = $"{FirstName} {LastName}";
-    }
-
-    private bool CanClick => FirstName == "Mikayla" && LastName == "Martin";
-
     //everything below is in the wrong place and will be moved later
 
     #region GeneratePlanetPaths() and LogScale() to be moved later
 
     public void GeneratePlanetPaths()
     {
-
     }
 
     public double LogScale(double distanceKm, double minDistanceKm, double maxDistanceKm, double minScale, double maxScale)
@@ -315,7 +308,7 @@ public partial class MainWindowViewModel : ObservableObject
         return scale;
     }
 
-    #endregion
+    #endregion GeneratePlanetPaths() and LogScale() to be moved later
 
     #endregion Public Methods
 }

@@ -1,6 +1,6 @@
-﻿using SpaceResume2024.ViewModels.NASA;
+﻿using Microsoft.Extensions.DependencyInjection;
 using SpaceResume2024.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
+using SpaceResume2024.ViewModels.NASA;
 using System.Windows;
 
 namespace SpaceResume2024;
@@ -10,7 +10,13 @@ namespace SpaceResume2024;
 /// </summary>
 public partial class App : Application
 {
+    #region Public Properties
+
     public IServiceProvider ServiceProvider { get; private set; }
+
+    #endregion Public Properties
+
+    #region Protected Methods
 
     protected override void OnStartup(StartupEventArgs e)
     {
@@ -27,6 +33,10 @@ public partial class App : Application
         mainWindow.Show();
     }
 
+    #endregion Protected Methods
+
+    #region Public Methods
+
     public IServiceProvider ConfigureServices()
     {
         var services = new ServiceCollection();
@@ -39,4 +49,6 @@ public partial class App : Application
 
         return services.BuildServiceProvider();
     }
+
+    #endregion Public Methods
 }

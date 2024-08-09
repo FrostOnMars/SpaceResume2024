@@ -6,6 +6,8 @@ namespace SpaceResume2024.Views.Converters;
 
 public class MouseTrackerConverter : IValueConverter
 {
+    #region Public Methods
+
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is not double coordinate) return value; // Return original value if conversion is not possible
@@ -26,4 +28,6 @@ public class MouseTrackerConverter : IValueConverter
     {
         throw new NotImplementedException();
     }
+
+    #endregion Public Methods
 }
