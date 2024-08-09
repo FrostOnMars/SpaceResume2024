@@ -12,6 +12,11 @@ public partial class ResumeTextViewModel : ObservableObject
     [ObservableProperty, NotifyPropertyChangedFor(nameof(PlanetImage))] private string _planetName;
     [ObservableProperty] private ResumeInfo? _resumeInfo;
 
+
+
+    #endregion Private Fields
+
+    #region Public Constructors
     public string PlanetImage
     {
         get => string.IsNullOrEmpty(_planetImage) ? string.Empty : _planetImage;
@@ -22,11 +27,6 @@ public partial class ResumeTextViewModel : ObservableObject
             OnPropertyChanged();
         }
     }
-
-    #endregion Private Fields
-
-    #region Public Constructors
-
     public ResumeTextViewModel()
     {
         ResumeInfo ??= new ResumeInfo();

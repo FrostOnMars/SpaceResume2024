@@ -1,13 +1,13 @@
-﻿using SpaceResume2024.ViewModels;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using SpaceResume2024.ViewModels;
 
 namespace SpaceResume2024.Views;
 
 /// <summary>
-/// Interaction logic for ResumeTextUserControl.xaml
+///     Interaction logic for ResumeTextUserControl.xaml
 /// </summary>
 public partial class ResumeTextUserControl : UserControl
 {
