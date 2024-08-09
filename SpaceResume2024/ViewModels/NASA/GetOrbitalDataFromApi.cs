@@ -1,4 +1,6 @@
-﻿using SpaceResume2024.Models.Api;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using SpaceResume2024.Models.Api;
 using SpaceResume2024.Models.PlanetModels;
 
 namespace SpaceResume2024.ViewModels.NASA;
@@ -14,8 +16,8 @@ public class GetOrbitalDataFromApi
     #region GetPlanetDataFromRestApi() uses AssembleUrl() & requests API Client
     public string? GetPlanetDataFromRestApi(string planetName)
     {
-        var client = new RestClient(_dataSources.SolarSystemAPI.AssembleURL(PlanetaryData.OrbitalData));
-        var request = new RestRequest($"{_dataSources.SolarSystemAPI.AssembleURL(PlanetaryData.OrbitalData)}{planetName}");
+        var client = new RestClient(_dataSources.SolarSystemAPI.AssembleUrl(PlanetaryData.OrbitalData));
+        var request = new RestRequest($"{_dataSources.SolarSystemAPI.AssembleUrl(PlanetaryData.OrbitalData)}{planetName}");
 
         var response = client.Execute(request);
 

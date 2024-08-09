@@ -22,7 +22,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="{Binding ScreenWidth}" />
         </Grid.ColumnDefinitions>
-            <!--<views:ResumeTextButton x:Name="Test" DataContext="{Binding ResumeTextViewModels[0]}" />-->
+            <views:ResumeTextButton x:Name="Test" DataContext="{Binding ResumeTextViewModels[0]}" />
             <ListView
                 x:Name="MyListView"
                 Grid.Row="0"
