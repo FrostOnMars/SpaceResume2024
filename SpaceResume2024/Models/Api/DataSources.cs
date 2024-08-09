@@ -12,7 +12,7 @@ public class SystemeSolaire
     public string BaseUrl = "https://api.le-systeme-solaire.net/";
     public string OrbitalDataUrl = "/rest/bodies/";
 
-    public string AssembleURL(PlanetaryData type)
+    public string AssembleUrl(PlanetaryData type)
     {
         return type switch
         {

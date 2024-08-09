@@ -38,7 +38,7 @@ public partial class PlanetViewModel : ObservableObject
         //_semiMinorAxis = planet.OrbitalData.semiMinorAxis;
         Name = planet.Name;
     }
-   
+
     //public PathGeometry FullEllipsePath
     //{
     //    get
@@ -81,7 +81,7 @@ public partial class PlanetViewModel : ObservableObject
     //        };
     //    }
     //}
-    
+
     //public Duration ComputeScaledOrbitDuration()
     //{
     //    if (Planet.OrbitalData == null) return new Duration();
@@ -96,36 +96,37 @@ public partial class PlanetViewModel : ObservableObject
     //    return new Duration(TimeSpan.FromSeconds(scaledTimeInSeconds));
     //}
 
-    /// <summary>
-    /// Converts an angle from degrees to radians.
-    /// </summary>
-    /// <param name="degrees">Angle in degrees.</param>
-    /// <returns>Angle in radians.</returns>
+    // <summary>
+    // Converts an angle from degrees to radians.
+    // </summary>
+    // <param name="degrees">Angle in degrees.</param>
+    // <returns>Angle in radians.</returns>
     //private static double DegreesToRadians(double degrees)
     //{
     //    return degrees * Math.PI / 180.0;
     //}
 
-    /// <summary>
-    /// Calculates the distance from the central body at a given true anomaly.
-    /// Uses the formula: r = (a * (1 - e^2)) / (1 + e * cos(ν)) [Polar Form Equation for an Ellipse]
-    /// </summary>
-    /// <param name="a">Semi-major axis.</param>
-    /// <param name="e">Eccentricity of the orbit.</param>
-    /// <param name="nu">True anomaly (angle between the direction of periapsis and the current position).</param>
-    /// <returns>Distance from the central body.</returns>
+    // <summary>
+    // Calculates the distance from the central body at a given true anomaly.
+    // Uses the formula: r = (a * (1 - e^2)) / (1 + e * cos(ν)) [Polar Form Equation for an Ellipse]
+    // </summary>
+    // <param name="a">Semi-major axis.</param>
+    // <param name="e">Eccentricity of the orbit.</param>
+    // <param name="nu">True anomaly (angle between the direction of periapsis and the current position).</param>
+    // <returns>Distance from the central body.</returns>
     //private static double CalculateDistance(double a, double e, double nu)
     //{
     //    return (a * (1 - e * e)) / (1 + e * Math.Cos(nu));
     //}
 
-    ///// <summary>
-    ///// Calculates the position (x, y) in a 2D plane based on polar coordinates.
-    ///// </summary>
-    ///// <param name="r">Distance from central body.</param>
-    ///// <param name="nu">True anomaly.</param>
-    ///// <param name="omega">Argument of periapsis (angle between the reference direction and the periapsis).</param>
-    ///// <returns>Position (x, y) in a 2D plane.</returns>
+    // <summary>
+    // Calculates the position (x, y) in a 2D plane based on polar coordinates.
+    // </summary>
+    // <param name="r">Distance from central body.</param>
+    // <param name="nu">True anomaly.</param>
+    // <param name="omega">Argument of periapsis (angle between the reference direction and the periapsis).</param>
+    // <returns>Position (x, y) in a 2D plane.</returns>
+
     //private static (double, double) CalculatePosition(double r, double nu, double omega)
     //{
     //    var x = r * Math.Cos(nu + omega);

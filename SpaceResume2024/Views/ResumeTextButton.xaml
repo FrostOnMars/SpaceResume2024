@@ -39,9 +39,9 @@
             Background="Transparent"
             Click="ButtonBase_OnClick"
             Style="{StaticResource CircularButtonStyle}">
-            <i:Interaction.Behaviors>
+            <!--<i:Interaction.Behaviors>
                 <viewModels:DropDownButtonBehaviorController />
-            </i:Interaction.Behaviors>
+            </i:Interaction.Behaviors>-->
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <Image

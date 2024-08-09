@@ -60,7 +60,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\EventArgs\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
 
 </Project>

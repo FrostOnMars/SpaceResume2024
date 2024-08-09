@@ -8,10 +8,7 @@
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800"
              Background="White">
-    <UserControl.Resources>
-        <converters:NullToDefaultConverter x:Key="NullToDefaultConverter" />
-        <converters:ResumeTextBodyConverter x:Key="ResumeTextBodyConverter" />
-    </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -20,23 +17,14 @@
 
         <TextBlock
         x:Name="ProfessionalGoalsTitle"
-        TextWrapping="Wrap"
-        Margin="10, 10, 10, 0"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Left"
-        FontSize="24"
-        FontWeight="Bold"
+        Style="{StaticResource BoldTextBlockStyle}"
         Grid.Row="0"
         Loaded="ProfessionalGoalsTitle_OnLoaded"
         Text="{Binding ResumeInfo.Title, Converter={StaticResource NullToDefaultConverter}, ConverterParameter='No Title Available'}" />
 
-        <TextBlock
+        <TextBlock 
         x:Name="ProfessionalGoalsBody"
-        TextWrapping="Wrap"
-        Margin="10"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Center"
-        FontSize="16"
+        Style="{StaticResource CenteredTextBlockStyle}"
         Grid.Row="1"
         Text="{Binding ResumeInfo.Body, Converter={StaticResource ResumeTextBodyConverter}}" />
     </Grid>

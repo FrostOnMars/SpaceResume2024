@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:SpaceResume2024.Views.Converters">
+
+
+        <converters:NullToDefaultConverter x:Key="NullToDefaultConverter" />
+        <converters:ResumeTextBodyConverter x:Key="ResumeTextBodyConverter" />
+        <converters:HalfValueConverter x:Key="HalfValueConverter" />
+
+</ResourceDictionary>

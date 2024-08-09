@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SpaceResume2024.ViewModels.EventArgs;
+using SpaceResume2024.ViewModels.NASA;
 
 namespace SpaceResume2024.Views;
 

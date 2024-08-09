@@ -1,4 +1,5 @@
-﻿using SpaceResume2024.Models.PlanetModels;
+﻿using SpaceResume2024.Models.Api;
+using SpaceResume2024.Models.PlanetModels;
 
 namespace SpaceResume2024.ViewModels.NASA;
 
@@ -10,7 +11,7 @@ public class GetOrbitalDataFromApi
     public delegate void ErrorHandler(string errorMessage);
     public static event ErrorHandler? ErrorOccurred;
 
-    #region GetPlanetDataFromRestApi() uses AssembleURL() & requests API Client
+    #region GetPlanetDataFromRestApi() uses AssembleUrl() & requests API Client
     public string? GetPlanetDataFromRestApi(string planetName)
     {
         var client = new RestClient(_dataSources.SolarSystemAPI.AssembleURL(PlanetaryData.OrbitalData));
