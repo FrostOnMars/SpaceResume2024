@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Extensions.DependencyInjection;
 using SpaceResume2024.ViewModels;
 using SpaceResume2024.ViewModels.NASA;
 using System.Collections.ObjectModel;
@@ -15,6 +16,7 @@ namespace SpaceResume2024;
 public partial class MainWindow : Window
 {
     #region Private Fields
+    private MainWindowViewModel viewModel => DataContext as MainWindowViewModel;
 
     private readonly MainWindowViewModel _viewModel = new();
 
@@ -26,6 +28,11 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         DataContext = _viewModel;
+        DataContext = ((App)Application.Current).ServiceProvider.GetRequiredService<MainWindowViewModel>(); //
+        viewModel.ScreenWidth = SystemParameters.PrimaryScreenWidth;
+        viewModel.ScreenHeight = SystemParameters.PrimaryScreenHeight;
+        Loaded += MainWindow_Loaded;
+        MouseMove += MouseTracker_OnMouseMove;
     }
 
     #endregion Public Constructors
@@ -58,20 +65,10 @@ public partial class MainWindow : Window
     //}
 
 
-    private MainWindowViewModel viewModel => DataContext as MainWindowViewModel;
 
 
 
-    public MainWindow()
-    {
-        DataContext = ((App)Application.Current).ServiceProvider.GetRequiredService<MainWindowViewModel>();
-        InitializeComponent();
-        viewModel.ScreenWidth = SystemParameters.PrimaryScreenWidth;
-        viewModel.ScreenHeight = SystemParameters.PrimaryScreenHeight;
-        Loaded += MainWindow_Loaded;
-        MouseMove += MouseTracker_OnMouseMove;
-
-    }
+   
     //private void LoopThatBanjoBaby()
     //{
     //    MediaPlayer.Position = TimeSpan.Zero; // Reset the media's position to the start.
